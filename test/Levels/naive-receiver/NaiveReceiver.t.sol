@@ -57,7 +57,7 @@ contract NaiveReceiver is Test {
          * EXPLOIT START *
          */
         vm.startPrank(attacker);
-        new AttackContract{value: 10 ether}(address(naiveReceiverLenderPool),address(flashLoanReceiver));
+        new AttackContract(address(naiveReceiverLenderPool),address(flashLoanReceiver));
         vm.stopPrank();
 
         /**
